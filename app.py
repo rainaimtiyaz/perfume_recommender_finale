@@ -39,6 +39,40 @@ st.markdown("""
         .st-emotion-cache-5rimss.e1nzilvr5 {
             margin-bottom: 1rem;
         }
+        .tooltip {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #1E90FF;
+            margin-left: 4px;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 320px;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: left;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.85rem;
+            box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -71,8 +105,19 @@ with col_data:
         - Parfum Unisex: {len(recommender_jaccard.df[recommender_jaccard.df['Gender'] == 'unisex'])}
         """)
 
-# Form input
-st.markdown("### 🔍 Masukkan Preferensi Anda")
+st.markdown("""
+<div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 0rem;">
+    <span style="font-size: 1.7rem; font-weight: 600.1;">🔍 Masukkan Preferensi Anda</span>
+    <div class="tooltip">ℹ️
+        <span class="tooltiptext">
+            Rekomendasi dihasilkan berdasarkan perhitungan Jaccard Similarity<br>
+            <br>
+            Jaccard Similarity: <strong>Melihat berapa banyak keyword yang benar-benar sama antara input user dengan master data.</strong>
+        </span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 col1, col2 = st.columns(2)
 
 with col1:
