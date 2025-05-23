@@ -107,7 +107,7 @@ with col_data:
 st.markdown("""
 <div style="display: inline-flex; align-items: center; gap: 4px; margin-bottom: 0rem;">
     <span style="font-size: 1.7rem; font-weight: 600.1;">🔍 Masukkan Preferensi Anda</span>
-    <div class="tooltip">asdf
+    <div class="tooltip">ℹ
         <span class="tooltiptext">
             Rekomendasi dihasilkan berdasarkan perhitungan Jaccard Similarity<br>
             <br>
